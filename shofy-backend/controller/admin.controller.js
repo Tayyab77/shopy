@@ -1,3 +1,5 @@
+//backend\controller\admin.controller.js
+
 const bcrypt = require("bcryptjs");
 const dayjs = require("dayjs");
 const utc = require("dayjs/plugin/utc");
@@ -39,14 +41,20 @@ const registerAdmin = async (req, res,next) => {
     next(err)
   }
 };
-// login admin
+// 3 - login admin
 const loginAdmin = async (req, res,next) => {
   // console.log(req.body)
   try {
+    // The Admin object here is a Mongoose model. Mongoose models are created based on schemas 
+    // that define the structure of the documents in the MongoDB collection.
+    //Pwd get retrieved from mongo and come back here
     const admin = await Admin.findOne({ email: req.body.email });
     // console.log(admin)
+    //Here db pwd and enter pwd matches  and then 
     if (admin && bcrypt.compareSync(req.body.password, admin.password)) {
       const token = generateToken(admin);
+      // The res.send() function sends back the token and user information 
+      // to the client, marking the login as successful.
       res.send({
         token,
         _id: admin._id,

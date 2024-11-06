@@ -1,3 +1,5 @@
+//backend\controller\user.controller.js
+
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../model/User");

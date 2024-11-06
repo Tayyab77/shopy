@@ -1,3 +1,5 @@
+//File Name: backend\controller\product.controller.js
+
 const Brand = require("../model/Brand");
 const productServices = require("../services/product.service");
 const Product = require("../model/Products");
@@ -49,14 +51,28 @@ module.exports.addAllProducts = async (req,res,next) => {
 }
 
 // get all products
+//Motive
+// This function serves as an endpoint to retrieve all products from the database by 
+// calling a service function. It returns the data to the client in a JSON format if 
+// successful or forwards any errors to the error-handling middleware.
+
+// Define an asynchronous function to get all products
 exports.getAllProducts = async (req,res,next) => {
   try {
+//Call the getAllProductsService function from productServices to retrieve product data  
     const result = await productServices.getAllProductsService();
+// Send a successful response back to the client with the retrieved product data
     res.status(200).json({
-      success:true,
-      data:result,
+      success:true, // Indicate success in the response
+
+      data:result, // Attach the result data
     })
   } catch (error) {
+  // Pass any caught errors to the next middleware for error handling
+  //So, when next(error); is called, this middleware catches it, logs the error, 
+  //and responds with a structured message for the client. This way, all errors are 
+  //handled consistently across the application, keeping the codebase cleaner and 
+  //improving user experience.
     next(error)
   }
 }

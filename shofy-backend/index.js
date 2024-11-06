@@ -1,3 +1,4 @@
+// ***backend\index.js***
 require("dotenv").config();
 const express = require("express");
 const app = express();
@@ -31,6 +32,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // connect database
 connectDB();
 
+//typically when you see a route like /api/user, it is often handled by a controller in 
+//the backend, such as user.controller.js.
+//The controller contains the business logic for handling requests related to users.
 app.use("/api/user", userRoutes);
 app.use("/api/category", categoryRoutes);
 app.use("/api/brand", brandRoutes);
@@ -41,6 +45,7 @@ app.use("/api/coupon", couponRoutes);
 app.use("/api/user-order", userOrderRoutes);
 app.use("/api/review", reviewRoutes);
 app.use("/api/cloudinary", cloudinaryRoutes);
+// 1 - url: "api/admin/login",
 app.use("/api/admin", adminRoutes);
 
 // root route

@@ -62,3 +62,5 @@ const authSlice = createSlice({
 
 export const { userLoggedIn, userLoggedOut } = authSlice.actions;
 export default authSlice.reducer;
+
+//admin-panel\src\redux\auth\authSlice.ts

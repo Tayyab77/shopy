@@ -1,3 +1,4 @@
+//backend\config\auth.js
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const Admin = require("../model/Admin");

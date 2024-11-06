@@ -1,6 +1,10 @@
 import { apiSlice } from "../api/apiSlice";
 import { IAddProduct,IReviewProductRes, ProductResponse } from "@/types/product-type";
 
+
+//In productApi.ts, the interface IProductResponse defines the structure of the 
+//response expected when interacting with product-related API endpoints. Here's a
+//breakdown of its properties:
 interface IProductResponse {
   success: boolean;
   status: string;
@@ -23,10 +27,18 @@ export const authApi = apiSlice.injectEndpoints({
       keepUnusedDataFor: 600,
     }),
     // add product
+    //addProduct Mutation: This mutation is designed to send a request to the server to add
+    // a new product.
+    //The builder.mutation method is used to define a mutation (i.e., a non-GET operation, 
+    //usually a POST, PUT, or DELETE).
     addProduct: builder.mutation<IProductResponse, IAddProduct>({
+      // Yes, exactly! We call it "defining a type" when we use interfaces like 
+      //IAddProduct to set specific rules for the shape and format of data. By defining 
+      //this type, TypeScript can ensure that any object passed to query(data: IAddProduct)
+      // meets those exact requirements. 
       query(data: IAddProduct) {
         return {
-          url: `/api/product/add`,
+          url: `/api/product/add`, 
           method: "POST",
           body: data,
         };

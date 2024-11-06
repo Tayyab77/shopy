@@ -74,3 +74,19 @@ const ProductGridAction = ({ id }: { id: string }) => {
 };
 
 export default ProductGridAction;
+
+// Here's how product-grid-area.tsx, product-grid-item.tsx, and product-grid-action.tsx work together:
+
+// product-grid-area.tsx: This is the main container component that renders the product listing grid. It maps over productItems to create individual product cards by using ProductGridItem for each product.
+
+// product-grid-item.tsx: This component represents a single product card in the grid. It receives product data as a prop, which it destructures to access details like the product image, title, price, and rating.
+
+// Within each product card, product-grid-item.tsx includes a ProductGridAction component, which adds interactive buttons for editing and deleting the product.
+
+// product-grid-action.tsx: This component handles the actions (edit and delete) for each product card. It provides functionality to delete a product (through Redux mutation) and includes tooltips and confirmation prompts for these actions.
+
+// Relationship: product-grid-area.tsx is responsible for generating the entire product grid, product-grid-item.tsx is used to render each individual product, and product-grid-action.tsx provides actions for each product item.
+
+// Together, they create a modular structure, with each file handling a specific responsibility—listing products, displaying individual product details, and managing product actions.
+
+// This setup allows each component to be reusable, maintainable, and isolated for different parts of the product grid functionality.

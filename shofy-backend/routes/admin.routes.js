@@ -1,3 +1,5 @@
+//backend\routes\admin.routes.js
+
 const express = require("express");
 const router = express.Router();
 const {
@@ -18,6 +20,7 @@ const {
 router.post("/register", registerAdmin);
 
 //login a admin
+// 2 - url: "api/admin/login",
 router.post("/login", loginAdmin);
 
 //login a admin

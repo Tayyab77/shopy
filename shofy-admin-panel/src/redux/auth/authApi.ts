@@ -1,3 +1,9 @@
+//Imagine apiSlice.ts is like a big post office, and the authApi.ts is a 
+//special mailbox for sending specific letters (login, registration, etc.) 
+//to the library admin.
+//In your code, apiSlice.ts is like this post office, managing the base setup for 
+//sending requests (like how to attach headers with authentication). This is done by 
+//configuring the baseQuery and prepareHeaders to include tokens from the cookies.
 import Cookies from "js-cookie";
 import { apiSlice } from "@/redux/api/apiSlice";
 import { userLoggedIn } from "./authSlice";
@@ -39,13 +45,23 @@ export const authApi = apiSlice.injectEndpoints({
       },
     }),
     // login
+    //Yes, the action from loginAdmin({ email, password }) in login-form.tsx will
+    // hit the function you mentioned in authApi.ts directly. This function is part
+    //of the API slice and defines how the login request will be handled.
+   //The Redux API slice is a part of Redux Toolkit that helps manage API calls efficiently.
+  // It simplifies the process of handling asynchronous operations like fetching or 
+  //sending data to a server. In your case, the authApi.ts file is an API slice. 
+ //In authApi.ts, there will be a builder.mutation defined for handling the login,
+// making an API call to your backend to check if the user can log in.
+//So, after the action is dispatched from login-form.tsx, it is managed by authApi.ts
+// where the actual API call to the backend is handled. 
     loginAdmin: builder.mutation<IAdminLoginRes, IAdminLoginAdd>({
       query: (data) => ({
         url: "api/admin/login",
         method: "POST",
         body: data,
       }),
-
+        // Handle response after the API call completes
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
           const result = await queryFulfilled;
@@ -171,3 +187,5 @@ export const {
   useDeleteStaffMutation,
   useGetStuffQuery,
 } = authApi;
+
+//admin-panel\src\redux\auth\authApi.ts

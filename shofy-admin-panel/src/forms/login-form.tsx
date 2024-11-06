@@ -15,14 +15,20 @@ const schema = Yup.object().shape({
 });
 
 const LoginForm = () => {
+  //Here, you're sending your "request" to log in by calling the loginAdmin function.
+  //The loginAdmin is action is like telling the librarian, "Hey, I want to enter!"
   const [loginAdmin, {data:loginData}] = useLoginAdminMutation();
   const router = useRouter();
-  // react hook form
+  // react hook form  
   const {register,handleSubmit,formState: { errors },reset} = useForm({
     resolver: yupResolver(schema),
   });
   // onSubmit
   const onSubmit =async (data: { email: string; password: string }) => {
+ //loginAdmin({ username, password }) triggers the action in Redux and will hig authApi.ts 
+ //file It initiates the process
+//sending a request to log in, just like handing your library card to the librarian.
+//In this case, loginAdmin is the action, and it exists in the file login-form.tsx.
     const res = await loginAdmin({ email: data.email, password: data.password });
     if ("error" in res) {
       if ("data" in res.error) {

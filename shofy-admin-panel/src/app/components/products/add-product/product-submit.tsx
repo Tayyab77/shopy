@@ -1,3 +1,4 @@
+//src\app\components\products\add-product\product-submit.tsx
 "use client";
 import React from "react";
 import useProductSubmit from "@/hooks/useProductSubmit";
@@ -10,7 +11,15 @@ import ProductImgUpload from "./product-img-upload";
 import ProductCategory from "../../category/product-category";
 import Tags from "./tags";
 import FormField from "../form-field";
+import { components } from "react-select";
 
+//So, instead of assigning new values, you’re pulling out the values that already 
+//live inside useProductSubmit. Then, if you later change img or imageURLs, those changes
+//affect the toolbox (the hook) directly.
+//functions handleSubmit and handleSubmitProduct come directly from the useProductSubmit
+// hook. This hook organizes and provides these functions to manage form submission 
+//and validation. By using this hook, the component can easily access these functions 
+//for submitting product data.
 const ProductSubmit = () => {
   const {
     handleSubmit,
@@ -35,6 +44,8 @@ const ProductSubmit = () => {
     additionalInformation,
     imageURLs,
   } = useProductSubmit();
+  //Yes, that’s right! Both ProductSubmit and useProductSubmit have these fields, 
+  //but they serve specific roles:
 
   console.log('additionalInformation--->',additionalInformation,'imageURLs--->',imageURLs)
 
@@ -45,6 +56,7 @@ const ProductSubmit = () => {
         <div className="col-span-12 xl:col-span-8 2xl:col-span-9">
           <div className="mb-6 bg-white px-8 py-8 rounded-md">
             <h4 className="text-[22px]">General</h4>
+            {/*This renders a form field*/}
             <FormField
               title="title"
               isRequired={true}

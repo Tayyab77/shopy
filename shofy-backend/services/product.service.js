@@ -34,9 +34,20 @@ exports.addAllProductService = async (data) => {
   return products;
 };
 
-// get product data
+//Motive
+//The function getAllProductsService is part of the service layer, designed to 
+//retrieve all products from the database, including their associated reviews, and return 
+//them. This layer isolates the database logic from the controller, promoting code 
+//reusability and separation of concerns.
+
+// Define an asynchronous function named `getAllProductsService` for retrieving all 
+//products
 exports.getAllProductsService = async () => {
+    // Query the Product collection to find all product documents
+  // and populate the 'reviews' field with referenced review data
   const products = await Product.find({}).populate("reviews");
+// Return the array of product documents with populated review data to the caller
+
   return products;
 };
 

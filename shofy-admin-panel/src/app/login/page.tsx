@@ -16,7 +16,7 @@ const LoginPage = () => {
                 <h4 className="text-[24px] mb-1">Login Now.</h4>
                 <p>{"Don't"} have an account?  
                  <span> 
-                    <Link href="/register" className="text-theme">Sign Up</Link> 
+                    <Link href="/register" className="text-theme">Sign Upu</Link> 
                   </span>
                 </p>
               </div>

@@ -1,3 +1,4 @@
+//backend\config\db.js
 const mongoose = require('mongoose');
 const { secret } = require('./secret');
 
@@ -11,7 +12,7 @@ const MONGO_URI = secret.db_url;
 const connectDB = async () => {
   try { 
     await mongoose.connect(MONGO_URI);
-    console.log('mongodb connection success!');
+    console.log('mongodb connection success Tayyab!');
   } catch (err) {
     console.log('mongodb connection failed!', err.message);
   }
