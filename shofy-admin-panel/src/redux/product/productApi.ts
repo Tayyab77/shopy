@@ -50,6 +50,9 @@ export const authApi = apiSlice.injectEndpoints({
       IProductEditResponse,
       { id: string; data: Partial<IAddProduct> }
     >({
+  //query({ id, data }): This is a function that takes an object as an argument with 
+  //two properties: id and data. The id refers to the product ID that needs to be edited, 
+  //and data represents the updated information for that product.
       query({ id, data }) {
         return {
           url: `/api/product/edit-product/${id}`,

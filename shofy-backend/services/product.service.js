@@ -4,6 +4,7 @@ const Product = require("../model/Products");
 
 // create product service
 exports.createProductService = async (data) => {
+  //Then went to Product model class.
   const product = await Product.create(data);
   const { _id: productId, brand, category } = product;
   //update Brand

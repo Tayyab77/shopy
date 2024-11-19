@@ -49,7 +49,16 @@ const ProductVariants = ({
   // handle size change
   const handleSizeChange = (sizes: string[], index: number) => {
     const updatedFormData = [...formData];
-    updatedFormData[index].sizes = sizes;
+
+    // Create a new object for the specific item at index, and update only the sizes property
+  const updatedItem = {
+    ...updatedFormData[index],           // Copy the existing object
+    sizes: sizes,                        // Update the sizes property
+  };
+
+  // Replace the old item with the new updated item
+  updatedFormData[index] = updatedItem;
+
     setFormData(updatedFormData);
     setImageURLs(updatedFormData);
   };

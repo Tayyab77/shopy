@@ -90,7 +90,8 @@ const useProductSubmit = () => {
   // useAddProductMutation
   //In your code, the value of addProductData,When a product is successfully added, you might want
   //to display a success message or perform some action based on the returned data.
-  // For example, after a successful addition, you can show a toast notification or update the UI with the newly added product details.
+  // For example, after a successful addition, you can show a toast notification or update 
+  //the UI with the newly added product details.
   //Yes, exactly! These are default values provided by Redux Toolkit's RTK Query,
   // not custom properties. When you call a mutation hook like useAddProductMutation, 
   //Redux Toolkit automatically includes metadata such as data, isError, isLoading, 

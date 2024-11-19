@@ -17,6 +17,7 @@ exports.addProduct = async (req, res,next) => {
       img: req.body.img,
     };
     const imageURLs = [firstItem, ...req.body.imageURLs];
+    //Then we go in createProductService to create product
     const result = await productServices.createProductService({
       ...req.body,
       imageURLs: imageURLs,
