@@ -1,0 +1,5 @@
+# Redirect API requests to the backend
+/api/*    https://shopy-tayyab77s-projects.vercel.app/api/:splat  200
+
+# Redirect all other routes to the frontend
+/*        /index.html  200
