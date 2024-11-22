@@ -132,7 +132,7 @@ const ProductListArea = () => {
               <span className="text-tiny inline-block leading-none -translate-y-[2px]">
                 Status :{" "}
               </span>
-    {/* When selection changes, call handleSelectField */}          
+         
               <select onChange={handleSelectField}>
                 <option value="">Status</option>
                 <option value="in-stock">In stock</option>

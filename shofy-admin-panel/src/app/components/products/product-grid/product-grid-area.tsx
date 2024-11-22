@@ -134,7 +134,7 @@ const ProductGridArea = () => {
             type="text"
             placeholder="Search by product name"
           />
-          //{/* Search button with icon */}
+          {/* Search button with icon */}
           <button className="absolute top-1/2 left-5 translate-y-[-50%] hover:text-theme">
             <Search />
           </button>
