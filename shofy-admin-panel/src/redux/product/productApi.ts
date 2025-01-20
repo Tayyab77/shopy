@@ -31,6 +31,13 @@ export const authApi = apiSlice.injectEndpoints({
     // a new product.
     //The builder.mutation method is used to define a mutation (i.e., a non-GET operation, 
     //usually a POST, PUT, or DELETE).
+    //After a mutation (like adding or updating data), you can use invalidatesTags to trigger 
+    //a cache invalidation for related queries, prompting them to refetch data from the API. 
+    //This is key for ensuring that the app reflects updated data after changes.
+    //1.Backend response hits addProduct mutation(in productAPI) → triggers invalidatesTags: ['AllProducts'].
+    //2.Redux Toolkit detects invalidated AllProducts tag → refetches useGetAllProductsQuery 
+    //from the db if used in the UI. 
+    //3.Key Line: [apiSlice.reducerPath]: apiSlice.reducer — This line in store.tsx 
     addProduct: builder.mutation<IProductResponse, IAddProduct>({
       // Yes, exactly! We call it "defining a type" when we use interfaces like 
       //IAddProduct to set specific rules for the shape and format of data. By defining 

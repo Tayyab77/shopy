@@ -1,3 +1,10 @@
+//By creating custom hooks like useCategorySubmit for a specific use case 
+//(category submission), you are separating the logic for that functionality 
+//from the UI. This makes the code easier to maintain and test.
+//This hook primarily functions as part of the business logic layer 
+//(also called the service layer or logic layer) because it handles.
+// Data transformation (preparing data for API submission).
+
 import { notifySuccess, notifyError } from "@/utils/toast";
 import { useAddCategoryMutation, useEditCategoryMutation } from "@/redux/category/categoryApi";
 import { useState } from "react";

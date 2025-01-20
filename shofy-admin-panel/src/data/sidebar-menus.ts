@@ -1,3 +1,9 @@
+
+// data folder
+// Purpose: Stores static or dynamic data used across the app.
+// Examples: JSON files, mock data, constants, or API response mappings.
+// Useful for centralizing data that doesn't change often.
+
 import { ISidebarMenus } from "./../types/menu-types";
 import {
   Dashboard,
@@ -89,6 +95,16 @@ const sidebar_menu: Array<ISidebarMenus> = [
       { title: "Login", link: "/login" },
       { title: "Forgot Password", link: "/forgot-password" }
     ],
+  },
+// This is a JavaScript object likely representing a menu or navigation item in a 
+// web application.
+// Usage: This object is likely part of a list that dynamically generates the application's 
+// sidebar or navigation menu.
+  {
+    id: 12,
+    icon: Categories,
+    link: "/slider-images",
+    title: "Slider Images",
   },
 ];
 

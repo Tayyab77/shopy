@@ -3,6 +3,7 @@ import Image from "next/image";
 import useUploadImage from "@/hooks/useUploadImg";
 import upload_default from "@assets/img/icons/upload.png";
 import Loading from "../common/loading";
+//Here we have api
 import UploadImage from "../products/add-product/upload-image";
 
 // prop type

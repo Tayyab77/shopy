@@ -1,3 +1,7 @@
+// data layer or API layer in your application architecture.
+//It interacts directly with the backend to fetch or manipulate data, 
+//which is then passed to your components via custom hooks.
+
 import { apiSlice } from "../api/apiSlice";
 import {
   CategoryResponse,
@@ -16,6 +20,16 @@ export const authApi = apiSlice.injectEndpoints({
       keepUnusedDataFor: 600,
     }),
     // add category
+    // When you call one of the custom hooks, such as useGetAllCategoriesQuery, 
+    // useAddCategoryMutation, etc., it triggers the appropriate endpoint inside 
+    // apiSlice.
+    // The custom hooks (e.g., useAddCategoryMutation) are used in your React 
+    // components. These hooks interact with apiSlice.ts and ultimately send the 
+    // request to the backend.
+// Endpoint: A defined operation (like addCategory), which tells how to 
+// interact with a specific path on the backend.
+// Endpoint Path: The specific URL (like /api/category/add) where the request 
+// is sent to.
     addCategory: builder.mutation<IAddCategoryResponse, IAddCategory>({
       query(data: IAddCategory) {
         return {
@@ -55,10 +69,18 @@ export const authApi = apiSlice.injectEndpoints({
   }),
 });
 
+// Here authApi is just object name and from here our endpoint i.e addCategory going directly
+// to apiSlice only and from there going directly backend
 export const {
   useGetAllCategoriesQuery,
   useAddCategoryMutation,
   useDeleteCategoryMutation,
   useEditCategoryMutation,
   useGetCategoryQuery, 
+
+  // CategoryApi of frontend
+  // useAddCategoryMutation,
+  // useGetProductTypeCategoryQuery,
+  // useGetShowCategoryQuery,
+
 } = authApi;

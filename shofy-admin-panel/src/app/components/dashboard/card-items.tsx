@@ -9,7 +9,7 @@ import isBetween from "dayjs/plugin/isBetween";
 import ErrorMsg from "../common/error-msg";
 dayjs.extend(isToday, isYesterday);
 dayjs.extend(isBetween);
-
+<h1>This is my main page</h1>
 type IPropType = {
   title: string;
   amount: number | undefined;

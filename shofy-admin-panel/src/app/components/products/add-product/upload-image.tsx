@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import upload_default from "@assets/img/icons/upload.png";
 import { SmClose } from "@/svg";
+//Here we have api
 import useCloudinary from "@/hooks/useCloudinary";
 import { ImageURL } from "@/hooks/useProductSubmit";
 

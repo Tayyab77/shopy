@@ -25,20 +25,27 @@ export const apiSlice = createApi({
     // response recieved by the apiSlice 
     //the response is automatically stored in the Redux store through 
     //useGetAllProductsQuery.
-    //1.Backend response hits addProduct mutation → triggers invalidatesTags: ['AllProducts'].
+    //1.Backend response hits addProduct mutation(in productAPI) → triggers invalidatesTags: ['AllProducts'].
     //2.Redux Toolkit detects invalidated AllProducts tag → refetches useGetAllProductsQuery 
     //from the db if used in the UI. 
     //3.Key Line: [apiSlice.reducerPath]: apiSlice.reducer — This line in store.tsx 
     //connects apiSlice.reducer to the Redux store, "so whenever apiSlice processes a query
    //(like useGetAllProductsQuery), the Redux store automatically receives and stores the 
-  //updated data, making it accessible throughout the app.This makes the updated product 
-  //list readily" 
+  //updated data, making it accessible throughout the app, Any React components using 
+  //the useGetAllSliderImagesQuery. Any React component using the useGetAllSliderImagesQuery
+//hook automatically gets notified that new data is available in the Redux store. 
+//For example our slideimg-tables.tsx comprise useGetAllSliderImagesQuery and once data 
+//will updated in store automatically will be updated in slideimg-tables.tsx
+  
     //accessible across the application. Any component that uses useGetAllProductsQuery 
     //will automatically receive this fresh data from the store, allowing the UI to stay 
     //in sync with the backend without manual updates.
     // Inside the component, const { data } = useGetAllProductsQuery() provides access 
     //to this updated data directly. Any changes in data (from updates in the store) 
     //are reflected instantly.
+    //Reducers: Each time you call an API query (e.g., useGetAllProductsQuery), Redux Toolkit 
+    //automatically creates actions to handle fetching states (loading, success, error) and updates 
+    //the Redux store with the fetched data.
 
     baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
     
@@ -88,7 +95,10 @@ export const apiSlice = createApi({
     "AllCoupons",                   // For managing coupon-related data
     "Coupon",                       // For handling individual coupon data
     "AllStaff",                     // For handling all staff-related data
-    "Stuff"                         // For handling specific "stuff" or staff-related information
+    "Stuff",
+    "AddSlideImg",
+    "AllSliderImages" ,
+    "getSliderImage"                        // For handling specific "stuff" or staff-related information
   ],
 });
 

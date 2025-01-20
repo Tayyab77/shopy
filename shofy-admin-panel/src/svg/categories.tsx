@@ -1,6 +1,6 @@
 import React from "react";
 
-const Categories = () => {
+const   Categories = () => {
   return (
     <svg
       style={{ transform: 'translateY(-4px)' }}
