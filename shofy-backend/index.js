@@ -13,6 +13,7 @@ const globalErrorHandler = require("./middleware/global-error-handler");
 // routes
 const userRoutes = require("./routes/user.routes");
 const categoryRoutes = require("./routes/category.routes");
+const slideimgRoutes = require("./routes/slideimg.routes");
 const brandRoutes = require("./routes/brand.routes");
 const userOrderRoutes = require("./routes/user.order.routes");
 const productRoutes = require("./routes/product.routes");
@@ -37,6 +38,7 @@ connectDB();
 //The controller contains the business logic for handling requests related to users.
 app.use("/api/user", userRoutes);
 app.use("/api/category", categoryRoutes);
+app.use("/api/slideimg", slideimgRoutes);
 app.use("/api/brand", brandRoutes);
 app.use("/api/product", productRoutes);
 // app.use('/api/upload',uploadRouter);
